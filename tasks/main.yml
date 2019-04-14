@@ -64,6 +64,7 @@
       when: not item is skipped
 
     - name: Enable Gnome Shell extensions
+      ignore_errors: yes
       command: gnome-shell-extension-tool --enable-extension {{ item.item.item.json.uuid }}
       register: enable_gnome_shell_extensions
       loop: "{{ download_gnome_shell_extensions.results }}"
